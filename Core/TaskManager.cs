@@ -7,7 +7,7 @@ namespace ToDoApp.Core {
         private int _nextId = 1;
         private ITaskStorage _storage;
         private string _storageFilePath;
-
+    
         /// <summary>
         /// Init new instance of TaskManager class
         /// Depends on ITaskStorage implementation to handle persistence
@@ -28,6 +28,20 @@ namespace ToDoApp.Core {
                 Console.WriteLine($"Warning: Could not load tasks on startup. Starting with an empty task list. Error: {ex.Message}");
                 _tasks = new List<ToDoTask>();
             }
+        }
+
+        public IEnumerable<ToDoTask> GetAllTasks () {
+            return _tasks;
+        }
+
+        public void SaveTasks() {
+            _storage.SaveTasks(_tasks, _storageFilePath); 
+        }
+
+        public void AddTask(string description, DateTime dueDate) {
+            _tasks.Add(new ToDoTask(_nextId, description, dueDate)); 
+            _nextId++;
+            this.SaveTasks();
         }
     }
 }

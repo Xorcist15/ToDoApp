@@ -6,6 +6,7 @@ namespace ToDoApp.Models {
         private string _status;
 
         public ToDoTask (int id, string desc, DateTime date) {
+            this._id = id;
             this._description = desc;
             this._dueDate = date;
             this._status = "Not started";
@@ -34,9 +35,6 @@ namespace ToDoApp.Models {
         public void markAsPending () {}
         public bool isOverdue() {
             return false;
-        }
-        public string ToString () {
-            return "";
         }
     }
 }

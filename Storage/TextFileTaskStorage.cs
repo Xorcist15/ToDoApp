@@ -29,7 +29,7 @@ namespace ToDoApp.Storage {
                     $"{task.Id}{Delimiter}" +
                     $"{task.Description.Replace(Delimiter, ' ')}{Delimiter}" +
                     $"{task.DueDate.ToBinary()}{Delimiter}" +
-                    $"{task.Status}{Delimiter}"
+                    $"{task.Status}"
                 );
             }
 
@@ -107,7 +107,7 @@ namespace ToDoApp.Storage {
                         }
                     }
                     else {
-                        Console.WriteLine($"Skipping malformed line (incorrect number of parts): '{line}'.");
+                        Console.WriteLine($"Skipping malformed line (incorrect number of parts [{parts.Length}]): '{line}'.");
                     }
                 }
             }
