@@ -21,7 +21,27 @@ namespace ToDoApp {
 
                     case "--list-tasks":
                     case "-ls":
-                        Console.WriteLine(Format(taskManager.GetAllTasks()));
+                        var tasks = taskManager.GetAllTasks();
+                        Console.WriteLine(FormatTasks(tasks));
+                        break;
+                        
+                    case "--delete":
+                    case "-d":
+                        if (args.Length < 2) {
+                            Console.WriteLine("Error, missing parameters");
+                            Console.WriteLine("Usage: --delete <task id>");
+                            return;
+                        }
+
+                        if (int.TryParse(args[1], out id)) {
+                            taskManager.DeleteTask(id);    
+                        }
+                        else {
+                            Console.WriteLine("Error, missing parameters");
+                            Console.WriteLine("Usage: --delete <task id>");
+                            return;
+                        }
+
                         break;
 
                     case "--add-task":
@@ -63,7 +83,7 @@ namespace ToDoApp {
             Console.WriteLine(version);
         }
 
-        static string Format(IEnumerable<ToDoTask> tasks) {
+        static string FormatTasks(IEnumerable<ToDoTask> tasks) {
 
             if (!tasks.Any()) return "No tasks to show.";
 

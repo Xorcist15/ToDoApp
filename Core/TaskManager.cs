@@ -43,5 +43,15 @@ namespace ToDoApp.Core {
             _nextId++;
             this.SaveTasks();
         }
+
+        public void DeleteTask(int taskId) {
+            foreach (var task in _tasks) {
+                if (taskId == task.Id) {
+                    _tasks.Remove(task);
+                    break;
+                }
+            }
+            _nextId--;
+        }
     }
 }
