@@ -1,6 +1,6 @@
 # ✅ ToDoApp – Application Console de Gestion de Tâches
 
-Bienvenue sur **ToDoApp**, une application console minimaliste développée en **C#** 💻. Elle permet de **gérer vos tâches facilement** depuis le terminal, en utilisant une architecture claire, modulaire et orientée objet.
+Bienvenue sur **ToDoApp**, une application console minimaliste développée en **C#** 💻. Elle permet de **gérer les tâches facilement** depuis le terminal, en utilisant une architecture claire, modulaire et orientée objet.
 
 ---
 
@@ -108,15 +108,7 @@ dotnet run -- --delete 2
 
 ## 👤 Auteur
 
-**🧑‍💻 Xorcist15**
-Étudiant en informatique à Colmar – Passionné par le développement logiciel et les systèmes Unix/Linux.
+BEN HASSINE Youssef, Étudiant en informatique à Colmar – Passionné par le développement logiciel et les systèmes Unix/Linux.
 🔗 [GitHub](https://github.com/Xorcist15)
-
----
-
-## 📝 Licence
-
-Ce projet est distribué sous la licence **MIT**.
-Libre à toi de l'utiliser, modifier, ou contribuer !
 
 ---
