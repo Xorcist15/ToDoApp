@@ -33,7 +33,7 @@ namespace ToDoApp {
                             return;
                         }
 
-                        if (int.TryParse(args[1], out id)) {
+                        if (int.TryParse(args[1], out int id)) {
                             taskManager.DeleteTask(id);    
                         }
                         else {
