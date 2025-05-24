@@ -1,6 +1,7 @@
 ﻿using ToDoApp.Core;
 using ToDoApp.Storage;
 using ToDoApp.Models;
+using ToDoApp.Services;
 
 namespace ToDoApp {
     class Program {
@@ -9,10 +10,16 @@ namespace ToDoApp {
             var storage = new TextFileTaskStorage();
             var filePath = "/home/yousef/github/ToDoApp/tasks.txt";
             var taskManager = new TaskManager(storage, filePath);
+            var helpFilePath = "/home/yousef/github/ToDoApp/Resources/us-help.txt";
+            var helpDisplay = new HelpDisplay(helpFilePath);
 
             // show a help message
             if (args.Length > 0) {
                 switch (args[0]) {
+                    case "--help":
+                    case "-h":
+                        helpDisplay.ShowHelp();
+                        break;
 
                     case "--version":
                     case "-v":
@@ -24,7 +31,7 @@ namespace ToDoApp {
                         var tasks = taskManager.GetAllTasks();
                         Console.WriteLine(FormatTasks(tasks));
                         break;
-                        
+
                     case "--delete":
                     case "-d":
                         if (args.Length < 2) {
@@ -34,10 +41,13 @@ namespace ToDoApp {
                         }
 
                         if (int.TryParse(args[1], out int id)) {
-                            taskManager.DeleteTask(id);    
+                            if (taskManager.DeleteTask(id))
+                                Console.WriteLine($"Task with id --> {id.ToString()} deleted");
+                            else
+                                Console.WriteLine($"Task with id --> {id.ToString()} does not exist");
                         }
                         else {
-                            Console.WriteLine("Error, missing parameters");
+                            Console.WriteLine("Error, second parameter must be a number");
                             Console.WriteLine("Usage: --delete <task id>");
                             return;
                         }

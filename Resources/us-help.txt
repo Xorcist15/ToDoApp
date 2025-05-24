@@ -1,0 +1,33 @@
+Usage: todoapp [--help | -h] [--version | -v] [--list-tasks | -ls]
+               [--add-task | -a] <description> [<due_date>]
+               [--delete | -d] <task_id>
+               [<interactive_command>] [<args>]
+
+These are common ToDoApp commands used in various situations:
+
+Manage tasks directly (command-line flags)
+  --add-task, -a <description> [<due_date>]
+      Adds a new task. Description is required. Due date (e.g., YYYY-MM-DD) is optional,
+      defaults to 7 days from now. Example: todoapp -a "Buy milk" 2025-06-01
+  --delete, -d <task_id>
+      Deletes a task by its ID. Example: todoapp -d 5
+  --list-tasks, -ls
+      Lists all current tasks.
+
+General commands
+  --help, -h
+      Displays this help message.
+  --version, -v
+      Displays the application version.
+
+Interactive mode commands (when running 'todoapp' without flags)
+  add <description> <due_date>
+      Adds a new task (interactive mode).
+  delete <task_id>
+      Deletes a task by its ID (interactive mode).
+  list
+      Displays all current tasks (interactive mode).
+  save
+      Saves the current tasks to storage (interactive mode).
+  exit
+      Exits the application (interactive mode).

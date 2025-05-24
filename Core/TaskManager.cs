@@ -44,14 +44,22 @@ namespace ToDoApp.Core {
             this.SaveTasks();
         }
 
-        public void DeleteTask(int taskId) {
+        public bool DeleteTask(int taskId) {
+
+            var taskExists = false;
+
             foreach (var task in _tasks) {
                 if (taskId == task.Id) {
+                    taskExists = true;
                     _tasks.Remove(task);
                     break;
                 }
             }
+
+            this.SaveTasks();
             _nextId--;
+
+            return taskExists;
         }
     }
 }
