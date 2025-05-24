@@ -80,6 +80,10 @@ dotnet run -- --delete 2
 
 ---
 
+![Exemple](./screenshot.jpg)
+
+---
+
 ## 🧠 Technologies utilisées
 
 * ⚙️ **Langage :** C#
